@@ -9,12 +9,18 @@ var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChara = ["!", "”", "#", "$", "%", "&", "’", "(", ")", "*", "+",
 ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 
+// Declares the array that will hold the user's selected types of characters.
+var choice = [];
+
+// Declares the array to hold each randomly selected character for the passcode before they are joined together.
+var passPieces = [];
+
 // Prompts after click
 
 // Function to generate the password from the above arrays
 function generatePassword() {
 
-  // Asks user to enter preferred password length. Mimimum of 8 characters and a maximum of 128.
+  // Asks user to enter preferred password length.
   var passLength = prompt("Please enter length of password - 8 to 128 characters.");
 
   // If the password length is not a number or is under or over the limit, the user will receive an error message and the alerts will close.
@@ -22,10 +28,7 @@ function generatePassword() {
     console.log(typeof passLength);
     alert("Invalid selection, please try again.");
     return;
-  }
-
-  // Declares the array that will hold the user's entered types of characters.
-  var choice = [];
+  } 
 
   // Asks the user yes or no if they want a certain type of character. If the user answers yes, it will add the type to the array. If not, nothing will happen and it will continue on.
   var optionLC = confirm("Does your password need lowercase letters?");
@@ -35,56 +38,44 @@ function generatePassword() {
   var optionN = confirm("Does your password need numbers?");
   
   var optionSC = confirm("Does your password need special characters?");
-  
-  // Combines the "choice" array into a single string for easier selection in the if-else statements.
-  // var passCharacters = choice.join(" ");
 
-  // Lowercase only
+  // Lowercase
   if (optionLC === true) {
     choice = choice.concat(lowercase);
   }
 
-  // Uppercase only
+  // Uppercase
   if (optionUC === true) {
     choice = choice.concat(uppercase);
   }
   
-  // Numeric only
+  // Numeric
   if (optionN === true) {
     choice = choice.concat(numeric);
   }
   
-  // Special characters only
+  // Special characters
   if (optionSC === true) {
     choice = choice.concat(specialChara);
   }
     
+  // No types selected
   if (optionLC !== true && optionUC !== true && optionN !== true && optionSC !== true) {
     alert("Invalid selection, please try again.");
   }
-  else {
-    
-  }
-
-  var combo = [].concat(choice);
-
-  var passPieces = [];
+  
+  // Loop that randomly selects the characters from the choice array and adds them into a new array
   for (i = 0; i <= passLength - 1; i++) {
-    var index = Math.floor(Math.random() * combo.length);
-    var digit = combo[index];
-    console.log(digit);
+    var index = Math.floor(Math.random() * choice.length);
+    var digit = choice[index];
     passPieces.push(digit);
   }
+
+  // Combines the array into a string without separation and returns it on the page
   var passcode = passPieces.join('');
-  console.log(passcode);
   return passcode;
 
 }
-
-
-// function newFunction(passLength) {
-//   parseInt(passLength);
-// }
 
 // Write password to the #password input
 function writePassword() {
