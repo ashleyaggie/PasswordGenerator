@@ -25,7 +25,6 @@ function generatePassword() {
 
   // If the password length is not a number or is under or over the limit, the user will receive an error message and the alerts will close.
   if (passLength < 8 || passLength > 128) {
-    console.log(typeof passLength);
     alert("Invalid selection, please try again.");
     return;
   } 
