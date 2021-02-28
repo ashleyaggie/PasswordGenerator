@@ -6,7 +6,7 @@ We were tasked with editing the JavaScript code we were given in order to create
 
 It is important for a website to have user interactivity in order to dynamically update depending on user needs and also to help further promote whatever the website is providing. Not every person is the same, so each user is going to have different criteria for what they are needing from a website. This also helped us learn more about randomly selecting something using code, which can be important for a variety of things including games and providing information.
 
-[Deployed Website] (https://ashleyaggie.github.io/PasswordGenerator/)
+[Deployed Website](https://ashleyaggie.github.io/PasswordGenerator/)
 
 ![Picture of the website default](/assets/images/website.png)
 
@@ -58,7 +58,7 @@ WHEN the password is generated
 
 THEN the password is either displayed in an alert or written to the page
 
-    * Using join with no spaces to make a single phrase and return, the password is shown onscreen.\
+    * Using join with no spaces to make a single phrase and return, the password is shown onscreen.
 
 ## Credits
 
